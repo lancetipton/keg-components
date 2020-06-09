@@ -31,8 +31,7 @@ storiesOf('Display | AppHeader', module)
         }}
         RightComponent={
           <Button onClick={action('right button clicked')}>
-            { ' ' }
-            custom right button{ ' ' }
+            custom right button
           </Button>
         }
         leftIcon={'arrow-left'}
