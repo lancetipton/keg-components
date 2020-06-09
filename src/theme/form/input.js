@@ -18,6 +18,6 @@ export const input = {
     },
     $native: {
       width: '100%',
-    }
-  }
+    },
+  },
 }

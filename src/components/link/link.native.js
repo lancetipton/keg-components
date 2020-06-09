@@ -10,9 +10,10 @@ const Text = KegText('link')
 
 const openLink = (url, onPress) => {
   return event => {
-    isStr(url) && Linking
-      .openURL(url)
-      .catch(err => console.error('Could not open url!', err))
+    isStr(url) &&
+      Linking.openURL(url).catch(err =>
+        console.error('Could not open url!', err)
+      )
 
     checkCall(onPress, event, url)
   }
@@ -24,26 +25,23 @@ const openLink = (url, onPress) => {
  *
  *
  */
-const Element = React.forwardRef(({ elProps, children, href, onPress, style, ...props }, ref) => (
-  <TouchableOpacity
-    { ...elProps }
-    { ...props }
-    ref={ ref }
-    onPress={ openLink(href, onPress) }
-  >
-    <Text style={ style } >
-      { children }
-    </Text>
-  </TouchableOpacity>
-))
-
-const Link = props => (
-  <LinkWrapper
-    { ...props }
-    Element={ Element }
-  />
+const Element = React.forwardRef(
+  ({ elProps, children, href, onPress, style, ...props }, ref) => (
+    <TouchableOpacity
+      {...elProps}
+      {...props}
+      ref={ref}
+      onPress={openLink(href, onPress)}
+    >
+      <Text style={style}>{ children }</Text>
+    </TouchableOpacity>
+  )
 )
 
+const Link = props => <LinkWrapper
+  {...props}
+  Element={Element}
+/>
 
 Link.propTypes = {
   href: PropTypes.string,

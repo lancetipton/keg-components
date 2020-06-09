@@ -6,5 +6,5 @@ export const useStyle = (...styles) => {
   const theme = useTheme()
   return useMemo(() => {
     return theme.get(...styles)
-  }, [ ...styles ])
+  }, [...styles])
 }

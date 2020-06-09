@@ -22,7 +22,7 @@ export const sharedToggle = {
     },
     $web: {
       outline: 'none',
-    }
+    },
   },
   left: {
     marginRight: margin.size,

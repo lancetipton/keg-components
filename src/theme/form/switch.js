@@ -19,7 +19,7 @@ const switchDefault = {
     },
     $web: {
       display: 'flex',
-    }
+    },
   },
   wrapper: {
     $web: {
@@ -32,14 +32,14 @@ const switchDefault = {
     },
     $native: {
       alignItems: 'center',
-    }
+    },
   },
   area: {
     off: {
       $web: {
         outline: 'none',
         backgroundColor: get(colors, 'palette.gray01'),
-        boxShadow: `inset 0px 0px 5px ${ get(colors, 'opacity._15') }`,
+        boxShadow: `inset 0px 0px 5px ${get(colors, 'opacity._15')}`,
         borderRadius: get(defaults, 'form.border.radius', 5) * 2,
         height: '70%',
         width: '100%',
@@ -48,9 +48,9 @@ const switchDefault = {
       },
       $native: {
         backgroundColor: get(colors, 'surface.primary.colors.main'),
-      }
+      },
     },
-    on: {}
+    on: {},
   },
   indicator: {
     off: {
@@ -58,7 +58,7 @@ const switchDefault = {
         outline: 'none',
         backgroundColor: get(colors, 'palette.white02'),
         borderRadius: get(defaults, 'form.border.radius', 5) * 2,
-        boxShadow: `0px 1px 3px ${ get(colors, 'opacity._50') }`,
+        boxShadow: `0px 1px 3px ${get(colors, 'opacity._50')}`,
         marginLeft: 0,
         cursor: 'pointer',
         height: height,
@@ -67,18 +67,18 @@ const switchDefault = {
         top: 0,
         left: 0,
         ...transition('left', 0.2),
-      }
+      },
     },
     on: {
       $web: {
         left: width,
-        boxShadow: `1px 1px 3px ${ get(colors, 'opacity._50') }`,
+        boxShadow: `1px 1px 3px ${get(colors, 'opacity._50')}`,
         backgroundColor: get(colors, 'surface.primary.colors.main'),
-      }
-    }
+      },
+    },
   },
   disabled: {
-    opacity: 0.4
+    opacity: 0.4,
   },
   left: {
     flex: 1,
@@ -87,29 +87,26 @@ const switchDefault = {
   right: {
     flex: 1,
     textAlign: 'right',
-  }
+  },
 }
 
-const switchClose = deepMerge(
-  switchDefault,
-  {
-    container: {
-      $all: {
-        justifyContent: 'flex-start',
-      }
+const switchClose = deepMerge(switchDefault, {
+  container: {
+    $all: {
+      justifyContent: 'flex-start',
     },
-    left: {
-      flex: 'none',
-      marginRight: '10px',
-      textAlign: 'inherit',
-    },
-    right: {
-      flex: 'none',
-      marginLeft: '10px',
-      textAlign: 'inherit',
-    }
-  }
-)
+  },
+  left: {
+    flex: 'none',
+    marginRight: '10px',
+    textAlign: 'inherit',
+  },
+  right: {
+    flex: 'none',
+    marginLeft: '10px',
+    textAlign: 'inherit',
+  },
+})
 
 export const switchStyles = {
   default: switchDefault,

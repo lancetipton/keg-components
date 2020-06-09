@@ -18,6 +18,6 @@ export const select = {
     },
     $native: {
       width: '100%',
-    }
-  }
+    },
+  },
 }

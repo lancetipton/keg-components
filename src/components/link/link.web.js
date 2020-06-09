@@ -14,22 +14,20 @@ const KegLink = KegText('link')
 const Element = React.forwardRef(({ elProps, children, ...props }, ref) => {
   return (
     <KegLink
-      { ...elProps }
-      { ...props }
-      ref={ ref }
+      {...elProps}
+      {...props}
+      ref={ref}
     >
       { children }
     </KegLink>
   )
 })
 
-const Link = props => (
-  <LinkWrapper
-    { ...props }
-    isWeb={ true }
-    Element={ Element }
-  />
-)
+const Link = props => <LinkWrapper
+  {...props}
+  isWeb={true}
+  Element={Element}
+/>
 
 Link.propTypes = {
   href: PropTypes.string,

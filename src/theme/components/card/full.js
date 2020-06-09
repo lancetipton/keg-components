@@ -20,10 +20,10 @@ export const full = deepMerge(contained, {
     },
     divider: {
       display: 'none',
-    }
+    },
   },
   body: {
     padding: padding.size,
     paddingTop: 0,
-  }
+  },
 })

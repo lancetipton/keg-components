@@ -32,36 +32,40 @@ export const IconWrapper = React.forwardRef((props, ref) => {
     size,
     styles,
     themePath,
-    type='default',
+    type = 'default',
     ...attrs
   } = props
 
-  if(!isValidComponent(Element))
-    return console.error(`Invalid Element passed to Icon component!`, Element) || null
+  if (!isValidComponent(Element))
+    return (
+      console.error(`Invalid Element passed to Icon component!`, Element) ||
+      null
+    )
 
-  const [ builtStyles ] = useThemePath(themePath || `icon.${type}`, styles)
+  const [builtStyles] = useThemePath(themePath || `icon.${type}`, styles)
 
   const iconProps = {
     ref,
     name,
     style: builtStyles.icon,
-    color: color ||
+    color:
+      color ||
       builtStyles.color ||
       get(builtStyles, 'icon.color') ||
       get(theme, 'typography.default.color'),
-    size: parseInt((
+    size: parseInt(
       size ||
-      get(builtStyles, 'icon.fontSize') ||
-      (get(theme, 'typography.default.fontSize', 15) * 2)
-    ), 10)
+        get(builtStyles, 'icon.fontSize') ||
+        get(theme, 'typography.default.fontSize', 15) * 2,
+      10
+    ),
   }
 
   return (
-    <View style={ builtStyles.container } >
-      <Element { ...iconProps } />
+    <View style={builtStyles.container}>
+      <Element {...iconProps} />
     </View>
   )
-
 })
 
 IconWrapper.propTypes = {
@@ -69,9 +73,6 @@ IconWrapper.propTypes = {
   name: PropTypes.string.isRequired,
   ref: PropTypes.object,
   style: PropTypes.object,
-  size: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
+  size: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
   type: PropTypes.string,
 }

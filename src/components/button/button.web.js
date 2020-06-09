@@ -10,9 +10,11 @@ import PropTypes from 'prop-types'
  *
  */
 const Element = React.forwardRef((props, ref) => {
-  return (<button { ...props } ref={ ref } />)
+  return <button
+    {...props}
+    ref={ref}
+  />
 })
-
 
 /**
  * Button
@@ -22,9 +24,9 @@ const Element = React.forwardRef((props, ref) => {
  */
 export const Button = props => (
   <ButtonWrapper
-    { ...props }
-    Element={ Element }
-    isWeb={ true }
+    {...props}
+    Element={Element}
+    isWeb={true}
   />
 )
 
