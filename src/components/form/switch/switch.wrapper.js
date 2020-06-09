@@ -1,15 +1,10 @@
 import React, { useState, useMemo } from 'react'
-import { useTheme, useThemeHover } from '@simpleviewinc/re-theme'
+import { useTheme } from '@simpleviewinc/re-theme'
 import { Text } from '../../typography'
 import { View } from 'KegView'
 import { useThemePath } from '../../../hooks'
 import { get, isStr, toBool, checkCall } from 'jsutils'
-import {
-  getOnChangeHandler,
-  getChecked,
-  getStyles,
-  renderFromType,
-} from '../../../utils'
+import { getOnChangeHandler, getChecked, renderFromType } from '../../../utils'
 import PropTypes from 'prop-types'
 
 /**
@@ -86,8 +81,6 @@ const ChildrenComponent = ({ children }) => (
  *
  */
 export const SwitchWrapper = props => {
-  const theme = useTheme()
-
   const {
     checked,
     children,

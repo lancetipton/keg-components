@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { deepMerge, isStr, get, reduceObj } from 'jsutils'
-import { View } from 'KegView'
 import { useThemePath, useMediaProps } from 'KegHooks'
 
 // Card children imports

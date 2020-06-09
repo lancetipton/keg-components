@@ -3,7 +3,6 @@ import { useTheme, useThemeHover } from '@simpleviewinc/re-theme'
 import { getPressHandler, getTarget } from '../../utils'
 import { get } from 'jsutils'
 import PropTypes from 'prop-types'
-import { KegText } from 'KegText'
 
 const getSpacer = isWeb => {
   return isWeb ? ' ' : '\n'

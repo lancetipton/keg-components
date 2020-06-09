@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react'
 import { storiesOf } from '@storybook/react'
 import { StoryWrap } from 'StoryWrap'
 import { Image, Link, Text } from '../../'
-import { get } from 'jsutils'
 
 const wrapStyles = { textAlign: 'center' }
 

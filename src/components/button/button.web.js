@@ -1,6 +1,5 @@
 import React from 'react'
 import { ButtonWrapper } from './button.wrapper'
-import PropTypes from 'prop-types'
 
 /**
  * Button Element

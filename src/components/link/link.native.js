@@ -1,6 +1,5 @@
 import React from 'react'
-import { useTheme } from '@simpleviewinc/re-theme'
-import { get, isStr, checkCall } from 'jsutils'
+import { isStr, checkCall } from 'jsutils'
 import { TouchableOpacity, Linking } from 'react-native'
 import { LinkWrapper } from './link.wrapper'
 import { KegText } from 'KegText'

@@ -2,17 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { StoryWrap, Split } from 'StoryWrap'
-import {
-  Checkbox,
-  Form,
-  Input,
-  Label,
-  Option,
-  Select,
-  Switch,
-  Text,
-  View,
-} from '../../'
+import { Checkbox, Form, Input, Label, Option, Select, Switch } from '../../'
 
 const inputStyles = { marginBottom: 15, width: 200 }
 

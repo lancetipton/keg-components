@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { P, View } from '../'
+import { P } from '../'
 import { Card } from './card'
 import { StoryWrap } from 'StoryWrap'
 

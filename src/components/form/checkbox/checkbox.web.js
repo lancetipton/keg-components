@@ -1,6 +1,5 @@
 import React from 'react'
 import { View } from 'KegView'
-import { Text } from '../../typography'
 import { CheckboxWrapper } from './checkbox.wrapper'
 import { Icon } from 'KegIcon'
 

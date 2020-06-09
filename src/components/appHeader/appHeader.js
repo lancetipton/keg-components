@@ -197,7 +197,7 @@ const Side = props => {
  * @returns {Component} - Customized Icon component
  */
 const CustomIcon = props => {
-  const { styled, defaultStyle, iconName, position } = props
+  const { defaultStyle, iconName, position } = props
 
   return (
     <Icon

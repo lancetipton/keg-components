@@ -1,7 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Switch, Checkbox } from '../../'
-import { View } from 'KegView'
 import { action } from '@storybook/addon-actions'
 import { StoryWrap, Split } from 'StoryWrap'
 

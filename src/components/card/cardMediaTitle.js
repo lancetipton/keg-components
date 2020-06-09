@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { useTheme } from '@simpleviewinc/re-theme'
 import { View } from 'KegView'
 import { Text } from '../typography/text'

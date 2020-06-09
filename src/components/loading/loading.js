@@ -17,7 +17,7 @@ import { useThemePath } from 'KegHooks'
  *
  */
 const Progress = props => {
-  const { styles, text, theme, loadIndicator } = props
+  const { styles, text, loadIndicator } = props
   const LoadingIndicator = loadIndicator || Indicator
 
   return (

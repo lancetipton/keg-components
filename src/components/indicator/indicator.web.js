@@ -3,7 +3,6 @@ import { IndicatorWrapper } from './indicator.wrapper'
 import { Icon } from 'KegIcon'
 import { View } from 'KegView'
 import { useSpin } from 'KegHooks'
-import { get } from 'jsutils'
 
 const Element = ({ style = {}, name, ...attrs }) => {
   const [spinRef] = useSpin()

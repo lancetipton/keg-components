@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { SwitchWrapper } from './switch.wrapper'
-import { Switch as RNSwitch, TouchableOpacity, Platform } from 'react-native'
+import { Switch as RNSwitch, TouchableOpacity } from 'react-native'
 import { View } from 'KegView'
 
 /**

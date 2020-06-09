@@ -1,6 +1,5 @@
-import { deepMerge, get } from 'jsutils'
+import { deepMerge } from 'jsutils'
 import { contained } from './contained'
-import { margin } from '../../margin'
 import { padding } from '../../padding'
 
 export const full = deepMerge(contained, {

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTheme } from '@simpleviewinc/re-theme'
 import { get } from 'jsutils'
 import PropTypes from 'prop-types'
 import { View } from 'KegView'
 import { isValidComponent } from '../../utils'
-import { useThemePath, useStyle } from 'KegHooks'
+import { useThemePath } from 'KegHooks'
 
 /**
  * IconWrapper
@@ -24,16 +24,13 @@ export const IconWrapper = React.forwardRef((props, ref) => {
   const theme = useTheme()
 
   const {
-    children,
     color,
     Element,
-    isWeb,
     name,
     size,
     styles,
     themePath,
     type = 'default',
-    ...attrs
   } = props
 
   if (!isValidComponent(Element))

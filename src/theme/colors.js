@@ -1,4 +1,4 @@
-import { get, isObj, isArr, isStr, reduceObj } from 'jsutils'
+import { get, isArr, isStr, reduceObj } from 'jsutils'
 import defaults from './defaults.json'
 import { helpers } from '@simpleviewinc/re-theme'
 

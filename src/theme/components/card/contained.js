@@ -3,7 +3,6 @@ import { margin } from '../../margin'
 import { padding } from '../../padding'
 import { flex } from '../../flex'
 import { helpers } from '../../helpers'
-import defaults from '../../defaults.json'
 import { get } from 'jsutils'
 
 const opacity05 = get(colors, 'opacity._05')

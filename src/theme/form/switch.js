@@ -1,10 +1,8 @@
 import defaults from '../defaults.json'
 import { colors } from '../colors'
 import { transition } from '../transition'
-import { margin } from '../margin'
 import { get, deepMerge } from 'jsutils'
 
-const space = get(defaults, 'form.checkbox.space', 15)
 const height = get(defaults, 'form.switch.height', 20)
 const width = get(defaults, 'form.switch.width', 20)
 

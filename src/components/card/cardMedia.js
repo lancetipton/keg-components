@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useTheme } from '@simpleviewinc/re-theme'
 import { View } from 'KegView'
 import { Image } from 'KegImg'
-import { Text } from '../typography/text'
 import { get } from 'jsutils'
 import { useStyle } from 'KegHooks'
+import { CardMediaTitle } from './cardMediaTitle'
 
 const MediaFromType = ({ mediaProps, styles }) => {
   const { type, ...props } = mediaProps
