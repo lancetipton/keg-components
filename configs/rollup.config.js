@@ -9,7 +9,8 @@ import alias from '@rollup/plugin-alias'
 import pathAlias from './aliases.json'
 import buildHook from './buildHook'
 
-const { DEV_MODE, BUILD_HOOK } = process.env
+const { DEV_MODE, BUILD_HOOK, DOC_COMPONENTS_PATH } = process.env
+
 const babelConfig = require('./babel.config.js')
 
 const getAliases = platform => Object
@@ -74,6 +75,8 @@ export default Array
         sourcemaps: true
       },
     ],
+    // When in the docker container, we want to turn chokidar off
+    ...(DOC_COMPONENTS_PATH && { watch: { chokidar: false } } || {}),
     plugins: [
       ...shared.plugins(platform),
       alias({
