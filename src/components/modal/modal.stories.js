@@ -8,50 +8,99 @@ import { action } from '@storybook/addon-actions'
 
 const storyStyles = { textAlign: 'center' }
 const buttonStyle = { width: 125, marginRight: 10 }
+const modalOverrideStyle = { backgroundColor: 'yellow' }
 
-storiesOf('Display | Modal', module).add('Standard', () => (
-  <StoryWrap style={storyStyles}>
-    <Section>
-      <H6>This is a Section!</H6>
-      <Divider />
-      <P style={{ paddingTop: 30 }}>
-        This is some text content that is displayed inside of the section.
-      </P>
-    </Section>
-    <Section>
-      <H6>This is a Section!</H6>
-      <Divider />
-      <P style={{ paddingTop: 30 }}>
-        This is some text content that is displayed inside of the section.
-      </P>
-    </Section>
-    <Section>
-      <H6>This is a Section!</H6>
-      <Divider />
-      <P style={{ paddingTop: 30 }}>
-        This is some text content that is displayed inside of the section.
-      </P>
-    </Section>
-    <Section>
-      <H6>This is a Section!</H6>
-      <Divider />
-      <P style={{ paddingTop: 30 }}>
-        This is some text content that is displayed inside of the section.
-      </P>
-    </Section>
-    <Modal
-      visible={true}
-      touchBackdrop={action('Touched outside of modal')}
-    >
-      <P>
-        Body of the default Modal. This is just some demo text as an example.
-      </P>
-      <Button
-        themePath='button.contained.primary'
-        styles={{ main: buttonStyle }}
-        onClick={action('Button Clicked!')}
-        content={'Primary'}
-      />
-    </Modal>
-  </StoryWrap>
-))
+storiesOf('Display | Modal', module)
+  .add('Standard', () => (
+    <StoryWrap style={storyStyles}>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Modal
+        visible={true}
+        touchBackdrop={action('Touched outside of modal')}
+      >
+        <P>
+          Body of the default Modal. This is just some demo text as an example.
+        </P>
+        <Button
+          themePath='button.contained.primary'
+          styles={{ main: buttonStyle }}
+          onClick={action('Button Clicked!')}
+          content={'Primary'}
+        />
+      </Modal>
+    </StoryWrap>
+  ))
+  .add('Style Override', () => (
+    <StoryWrap style={storyStyles}>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Section>
+        <H6>This is a Section!</H6>
+        <Divider />
+        <P style={{ paddingTop: 30 }}>
+          This is some text content that is displayed inside of the section.
+        </P>
+      </Section>
+      <Modal
+        styles={{ main: modalOverrideStyle }}
+        visible={true}
+        touchBackdrop={action('Touched outside of modal')}
+      >
+        <P>
+          Body of the default Modal. This is just some demo text as an example.
+        </P>
+        <Button
+          themePath='button.contained.primary'
+          styles={{ main: buttonStyle }}
+          onClick={action('Button Clicked!')}
+          content={'Primary'}
+        />
+      </Modal>
+    </StoryWrap>
+  ))
