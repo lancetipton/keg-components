@@ -1,12 +1,15 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Section, H6, Divider, P } from '../../'
+import { Button, Section, H6, Divider, P } from '../../'
 import { Modal } from './modal'
+
 import { StoryWrap } from 'StoryWrap'
+import { action } from '@storybook/addon-actions'
 
 const storyStyles = { textAlign: 'center' }
+const buttonStyle = { width: 125, marginRight: 10 }
 
-storiesOf('Display | Modal', module).add('Plain', () => (
+storiesOf('Display | Modal', module).add('Standard', () => (
   <StoryWrap style={storyStyles}>
     <Section>
       <H6>This is a Section!</H6>
@@ -36,10 +39,19 @@ storiesOf('Display | Modal', module).add('Plain', () => (
         This is some text content that is displayed inside of the section.
       </P>
     </Section>
-    <Modal visible={true}>
+    <Modal
+      visible={true}
+      touchBackdrop={action('Touched outside of modal')}
+    >
       <P>
         Body of the default Modal. This is just some demo text as an example.
       </P>
+      <Button
+        themePath='button.contained.primary'
+        styles={{ main: buttonStyle }}
+        onClick={action('Button Clicked!')}
+        content={'Primary'}
+      />
     </Modal>
   </StoryWrap>
 ))

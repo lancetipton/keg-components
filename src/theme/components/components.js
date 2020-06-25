@@ -27,5 +27,5 @@ export const components = {
   loading,
   section,
   textBox,
-  modal,
+  ...modal,
 }
