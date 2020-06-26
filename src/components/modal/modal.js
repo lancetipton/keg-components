@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import { useThemePath } from 'KegHooks'
 import { View } from 'KegView'
-import { noop } from '../../utils'
+import { noop } from 'KegUtils'
 
 /**
  * Simple popup modal using fixed positioning.
@@ -20,8 +20,12 @@ export const Modal = props => {
     themePath,
     type = 'default',
   } = props
+
+  if (!visible) return null
+
   const [modalStyles] = useThemePath(themePath || `modal.${type}`, styles)
-  return visible ? (
+
+  return (
     <View>
       <TouchableOpacity
         onPressOut={touchBackdrop}
@@ -31,7 +35,7 @@ export const Modal = props => {
       </TouchableOpacity>
       <View style={modalStyles.main}>{ children }</View>
     </View>
-  ) : null
+  )
 }
 
 Modal.propTypes = {
