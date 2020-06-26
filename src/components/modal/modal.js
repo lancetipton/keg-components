@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableWithoutFeedback } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import { useThemePath } from 'KegHooks'
 import { View } from 'KegView'
@@ -11,19 +11,24 @@ import { noop } from '../../utils'
  * @param {Boolean} props.visible - if true, show the modal, else hide it
  * @param {Function} props.touchBackdrop - the function to execute when the user selects/touches outside the modal; defaults to noop
  */
-export const Modal = ({
-  visible = false,
-  styles,
-  touchBackdrop = noop,
-  ...props
-}) => {
-  const { children, themePath, type = 'default' } = props
+export const Modal = props => {
+  const {
+    visible = false,
+    styles,
+    touchBackdrop = noop,
+    children,
+    themePath,
+    type = 'default',
+  } = props
   const [modalStyles] = useThemePath(themePath || `modal.${type}`, styles)
   return visible ? (
     <View>
-      <TouchableWithoutFeedback onPress={touchBackdrop}>
+      <TouchableOpacity
+        onPressOut={touchBackdrop}
+        activeOpacity={1}
+      >
         <View style={modalStyles.backdrop} />
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
       <View style={modalStyles.main}>{ children }</View>
     </View>
   ) : null
