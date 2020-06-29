@@ -8,7 +8,11 @@ import { action } from '@storybook/addon-actions'
 
 const storyStyles = { textAlign: 'center' }
 const buttonStyle = { width: 125, marginRight: 10 }
-const modalOverrideStyle = { backgroundColor: 'yellow' }
+const modalOverrideStyle = {
+  backgroundColor: 'yellow',
+  width: '400px',
+  maxHeight: '400px',
+}
 
 storiesOf('Display | Modal', module)
   .add('Standard', () => (
@@ -43,7 +47,7 @@ storiesOf('Display | Modal', module)
       </Section>
       <Modal
         visible={true}
-        touchBackdrop={action('Touched outside of modal')}
+        onBackdropTouch={action('Touched outside of modal')}
       >
         <P>
           Body of the default Modal. This is just some demo text as an example.
@@ -90,7 +94,7 @@ storiesOf('Display | Modal', module)
       <Modal
         styles={{ main: modalOverrideStyle }}
         visible={true}
-        touchBackdrop={action('Touched outside of modal')}
+        onBackdropTouch={action('Touched outside of modal')}
       >
         <P>
           Body of the default Modal. This is just some demo text as an example.
