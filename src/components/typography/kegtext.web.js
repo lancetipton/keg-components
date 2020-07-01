@@ -45,6 +45,7 @@ const Text = forwardRef((props, ref) => {
 
   // Get the styles for the text element
   const textStyles = theme.get(
+    'typography.reset',
     'typography.font.family',
     'typography.default',
     ellipsis && ellipsisStyle,
@@ -66,9 +67,10 @@ const Text = forwardRef((props, ref) => {
   )
 })
 
-export const KegText = element => {
+export const KegText = (element, extraProps = {}) => {
   return forwardRef((props, ref) => (
     <Text
+      {...extraProps}
       {...props}
       element={element}
       ref={ref}

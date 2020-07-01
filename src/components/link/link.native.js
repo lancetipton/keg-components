@@ -29,6 +29,7 @@ const Element = React.forwardRef(
     <TouchableOpacity
       {...elProps}
       {...props}
+      accessibilityRole='link'
       ref={ref}
       onPress={openLink(href, onPress)}
     >

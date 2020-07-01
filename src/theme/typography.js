@@ -59,6 +59,17 @@ export const typography = {
     fontWeight: '700',
     marginBottom: margin.size / 4,
   },
+  reset: {
+    fontFamily: 'System',
+    color: '#000',
+    border: '0 solid black',
+    boxSizing: 'border-box',
+    display: 'inline',
+    margin: 0,
+    padding: 0,
+    whiteSpace: 'pre-wrap',
+    wordWrap: 'break-word',
+  },
   paragraph: {
     fontSize: fontDefs.size || 16,
     letterSpacing: 0.5,

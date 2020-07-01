@@ -1,2 +1,3 @@
-import { KegText } from 'KegText'
-export const H6 = KegText('h6')
+import { withAriaLevel } from '../../hocs'
+
+export const H6 = withAriaLevel('h6', { accessibilityRole: 'header' })
