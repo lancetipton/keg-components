@@ -8,7 +8,7 @@ import { noOp } from 'KegUtils'
 import { useDimensions } from '@simpleviewinc/re-theme'
 import { get } from 'jsutils'
 
-const getModalHeight = () => {
+const useWindowHeight = () => {
   const dimensions = useDimensions()
   return { height: dimensions.height }
 }
@@ -33,6 +33,8 @@ export const Modal = props => {
 
   const [modalStyles] = useThemePath(themePath || `modal.${type}`, styles)
   const theme = useTheme()
+  const dimensionStyles = useWindowHeight()
+  const mainStyles = theme.join(get(modalStyles, 'main'), dimensionStyles)
 
   return (
     <View>
@@ -42,9 +44,7 @@ export const Modal = props => {
       >
         <View style={modalStyles.backdrop} />
       </TouchableOpacity>
-      <View style={theme.join(get(modalStyles, ['main']), getModalHeight())}>
-        { children }
-      </View>
+      <View style={mainStyles}>{ children }</View>
     </View>
   )
 }
