@@ -63,5 +63,20 @@
     "select": {
       "height": 35
     }
+  },
+  "tabbar": {
+    "bar": {
+      "height": 35
+    }
+  },
+  "border": {
+    "style": "solid",
+    "styles": {
+      "solid": "solid",
+      "dashed": "dashed",
+      "dotted": "dotted"
+    },
+    "width": 1,
+    "color": "#333333"
   }
 }
