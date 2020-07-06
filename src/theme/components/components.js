@@ -10,6 +10,7 @@ import { indicator } from './indicator'
 import { link } from './link'
 import { loading } from './loading'
 import { section } from './section'
+import { tabbar } from './tabbar'
 import { textBox } from './textBox'
 
 export const components = {
@@ -25,5 +26,6 @@ export const components = {
   link,
   loading,
   section,
+  tabbar,
   textBox,
 }

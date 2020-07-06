@@ -1,8 +1,11 @@
 // -------- Flex styles -------- //
-const flex = {
+const flex = () => ({ flex: 1 })
+Object.assign(flex, {
   align: dir => ({ alignItems: dir }),
   direction: dir => ({ flexDirection: dir }),
   justify: dir => ({ justifyContent: dir }),
+  grow: amount => ({ flexGrow: amount }),
+  shrink: amount => ({ flexShrink: amount }),
   display: { display: 'flex' },
   wrap: { flexWrap: 'wrap' },
   center: {
@@ -23,24 +26,28 @@ const flex = {
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
   },
-}
+  direction: {
+    row: { flexDirection: 'row' },
+    column: { flexDirection: 'column' },
+  },
+  justify: {
+    start: { justifyContent: 'flex-start' },
+    end: { justifyContent: 'flex-end' },
+    center: { justifyContent: 'center' },
+    between: { justifyContent: 'space-between' },
+    around: { justifyContent: 'space-around' },
+    even: { justifyContent: 'space-evenly' },
+  },
+  align: {
+    start: { alignItems: 'flex-start' },
+    end: { alignItems: 'flex-end' },
+    center: { alignItems: 'center' },
+    stretch: { alignItems: 'stretch' },
+    base: { alignItems: 'baseline' },
+  },
+})
 
-flex.direction.row = { flexDirection: 'row' }
-flex.direction.column = { flexDirection: 'column' }
 flex.row = flex.direction.row
 flex.column = flex.direction.column
-
-flex.justify.start = { justifyContent: 'flex-start' }
-flex.justify.end = { justifyContent: 'flex-end' }
-flex.justify.center = { justifyContent: 'center' }
-flex.justify.between = { justifyContent: 'space-between' }
-flex.justify.around = { justifyContent: 'space-around' }
-flex.justify.even = { justifyContent: 'space-evenly' }
-
-flex.align.start = { alignItems: 'flex-start' }
-flex.align.end = { alignItems: 'flex-end' }
-flex.align.center = { alignItems: 'center' }
-flex.align.stretch = { alignItems: 'stretch' }
-flex.align.base = { alignItems: 'baseline' }
 
 export { flex }
