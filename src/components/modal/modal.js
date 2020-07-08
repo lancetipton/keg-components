@@ -1,17 +1,17 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
-import { useTheme } from '@simpleviewinc/re-theme'
-import { useThemePath } from 'KegHooks'
+// import { useTheme } from '@simpleviewinc/re-theme'
+import { useThemeWithHeight } from 'KegHooks'
 import { View } from 'KegView'
 import { noOp } from 'KegUtils'
-import { useDimensions } from '@simpleviewinc/re-theme'
-import { get } from 'jsutils'
+// import { useDimensions } from '@simpleviewinc/re-theme'
+// import { get } from 'jsutils'
 
-const useWindowHeight = () => {
-  const dimensions = useDimensions()
-  return { height: dimensions.height }
-}
+// const useWindowHeight = () => {
+//   const dimensions = useDimensions()
+//   return { height: dimensions.height }
+// }
 
 /**
  * Simple popup modal using fixed positioning.
@@ -31,10 +31,12 @@ export const Modal = props => {
 
   if (!visible) return null
 
-  const [modalStyles] = useThemePath(themePath || `modal.${type}`, styles)
-  const theme = useTheme()
-  const dimensionStyles = useWindowHeight()
-  const mainStyles = theme.join(get(modalStyles, 'main'), dimensionStyles)
+  const [modalStyles] = useThemeWithHeight(themePath || `modal.${type}`, styles)
+  console.log(modalStyles)
+  // useThemePath(themePath || `modal.${type}`, styles)
+  // const theme = useTheme()
+  // const dimensionStyles = useWindowHeight()
+  // const mainStyles = theme.join(get(modalStyles, 'main'), dimensionStyles)
 
   return (
     <View>
@@ -44,7 +46,7 @@ export const Modal = props => {
       >
         <View style={modalStyles.backdrop} />
       </TouchableOpacity>
-      <View style={mainStyles}>{ children }</View>
+      <View style={modalStyles.main}>{ children }</View>
     </View>
   )
 }
