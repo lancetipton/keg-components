@@ -101,7 +101,7 @@ storiesOf('Display | Modal', module)
             width: '400px',
             maxHeight: '400px',
           },
-          backdrop: {},
+          backdrop: { backgroundColor: 'rgba(1,1,1,0.5)' },
         }}
         visible={true}
         onBackdropTouch={action('Touched outside of modal')}
