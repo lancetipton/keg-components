@@ -2,20 +2,19 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Button, Section, H6, Divider, P } from '../../'
 import { Modal } from './modal'
-
 import { StoryWrap } from 'StoryWrap'
 import { action } from '@storybook/addon-actions'
 
 const storyStyles = { textAlign: 'center' }
 const buttonStyle = { width: 125, marginRight: 10 }
-// const modalOverrideStyle = {
-//   main: {
-//     backgroundColor: 'yellow',
-//     width: '400px',
-//     maxHeight: '400px',
-//   },
-//   backdrop: {}
-// }
+const modalOverrideStyle = {
+  main: {
+    backgroundColor: 'yellow',
+    width: '400px',
+    borderRadius: 40,
+  },
+  backdrop: { backgroundColor: 'rgba(1,1,1,0.5)' },
+}
 
 storiesOf('Display | Modal', module)
   .add('Standard', () => (
@@ -95,14 +94,7 @@ storiesOf('Display | Modal', module)
         </P>
       </Section>
       <Modal
-        styles={{
-          main: {
-            backgroundColor: 'yellow',
-            width: '400px',
-            maxHeight: '400px',
-          },
-          backdrop: { backgroundColor: 'rgba(1,1,1,0.5)' },
-        }}
+        styles={modalOverrideStyle}
         visible={true}
         onBackdropTouch={action('Touched outside of modal')}
       >

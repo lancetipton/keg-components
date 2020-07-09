@@ -3,19 +3,24 @@ import { modal as defaults } from '../defaults.json'
 export const modal = {
   default: {
     main: {
-      zIndex: 100010,
-      position: 'fixed',
-      top: '50%',
-      right: '50%',
-      left: 'auto',
-      transform: 'translate(50%, -50%)',
-      boxSizing: 'border-box',
-      width: defaults.width,
-      maxWidth: '80%',
-      maxHeight: '600px',
-      padding: '15px',
-      borderRadius: 4,
-      backgroundColor: '#fff',
+      $xsmall: {
+        zIndex: 100010,
+        position: 'fixed',
+        top: '50%',
+        right: '50%',
+        left: 'auto',
+        transform: 'translate(50%, -50%)',
+        boxSizing: 'border-box',
+        width: defaults.width,
+        maxWidth: '90%',
+        maxHeight: '600px',
+        padding: 0,
+        borderRadius: 4,
+        backgroundColor: '#fff',
+      },
+      $medium: {
+        maxWidth: '80%',
+      },
     },
     backdrop: {
       zIndex: 100000,
