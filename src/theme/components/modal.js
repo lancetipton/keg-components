@@ -1,15 +1,14 @@
 import { modal as defaults } from '../defaults.json'
 import { flex } from '../flex'
+import { helpers } from '../helpers'
+import { colors } from '../colors'
 
 export const modal = {
   default: {
     wrapper: {
       ...flex.center,
+      ...helpers.abs,
       position: 'fixed',
-      top: '0',
-      left: 0,
-      right: 0,
-      bottom: 0,
     },
     main: {
       $xsmall: {
@@ -20,7 +19,7 @@ export const modal = {
         maxHeight: 600,
         padding: 0,
         borderRadius: 4,
-        backgroundColor: '#fff',
+        backgroundColor: colors.palette.white01,
       },
       $medium: {
         maxWidth: '80%',
@@ -28,11 +27,8 @@ export const modal = {
     },
     backdrop: {
       zIndex: 100000,
+      ...helpers.abs,
       position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
       backgroundColor: 'rgba(1,1,1,0.2)',
     },
   },

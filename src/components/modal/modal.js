@@ -23,9 +23,8 @@ const DefaultAnimationView = ({
   children,
   ...props
 }) => {
-  if (isValidComponent(ModalContainer)) {
+  if (isValidComponent(ModalContainer))
     return <ModalContainer>{ children }</ModalContainer>
-  }
 
   // use the state to keep track of whether the modal has animated yet
   const [ animated, setAnimated ] = useState(false)
@@ -36,7 +35,7 @@ const DefaultAnimationView = ({
   useEffect(() => {
     Animated.timing(slideVal, {
       toValue: 1,
-      duration: 1000,
+      duration: 500,
     }).start(() => setAnimated(true))
   }, [])
 
