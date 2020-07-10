@@ -36,7 +36,7 @@ const DefaultAnimationView = ({
   useEffect(() => {
     Animated.timing(slideVal, {
       toValue: 1,
-      duration: 500,
+      duration: 1000,
     }).start(() => setAnimated(true))
   }, [])
 
