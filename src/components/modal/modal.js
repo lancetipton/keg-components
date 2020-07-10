@@ -13,7 +13,7 @@ import { isValidComponent } from 'KegUtils'
  * Modal wrapper to allow caller to pass in custom animation and styles
  * @param {object} params
  * @param {Component} params.ModalContainer custom component with its own animation and styles
- * @param {Object} params.modalStyles
+ * @param {Object} params.modalStyles default modal styles used if no ModalContainer is passed in
  * @param {Component} params.children children components
  * @param {object} params.props
  */
@@ -62,16 +62,16 @@ const DefaultAnimationView = ({
 
 /**
  * Simple popup modal using fixed positioning.
- * @param {Object} props
- * @param {Boolean} visible - if true, show the modal, else hide it
- * @param {Object} styles - styles object which overrides default theme styles
- * @param {Function} onBackdropTouch - the function to execute when the user selects/touches outside the modal; defaults to noOp
- * @param {Component} children - the component(s) to render inside the modal
- * @param {String} themePath - path to a theme file containing the following properties:
+ * @param {Object} params
+ * @param {Boolean} params.visible - if true, show the modal, else hide it
+ * @param {Object} params.styles - styles object which overrides default theme styles
+ * @param {Function} params.onBackdropTouch - the function to execute when the user selects/touches outside the modal; defaults to noOp
+ * @param {Component} params.children - the component(s) to render inside the modal
+ * @param {String} params.themePath - path to a theme file containing the following properties:
  *  - main: styles for the modal
  *  - backdrop: styles for the background behind the modal
- * @param {String} type - type of modal (points to styles in theme file with that type); default is 'default'
- * @param {Number} activeOpacity - changes opacity of background when touched/clicked; default is 1
+ * @param {String} params.type - type of modal (points to styles in theme file with that type); default is 'default'
+ * @param {Number} params.activeOpacity - changes opacity of background when touched/clicked; default is 1
  * @param {Component} params.ModalContainer - pass a custom component to completely override the modal content
  */
 export const Modal = props => {
