@@ -5,18 +5,25 @@ import { colors } from '../colors'
 
 export const modal = {
   default: {
-    wrapper: {
+    main: {
       ...flex.center,
       ...helpers.abs,
       position: 'fixed',
     },
-    main: {
+    backdrop: {
+      zIndex: 100000,
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(1,1,1,0.2)',
+    },
+    content: {
       $xsmall: {
         zIndex: 100010,
-        boxSizing: 'border-box',
         width: defaults.width,
         maxWidth: '90%',
-        maxHeight: 600,
         padding: 0,
         borderRadius: 4,
         backgroundColor: colors.palette.white01,
@@ -24,12 +31,6 @@ export const modal = {
       $medium: {
         maxWidth: '80%',
       },
-    },
-    backdrop: {
-      zIndex: 100000,
-      ...helpers.abs,
-      position: 'fixed',
-      backgroundColor: 'rgba(1,1,1,0.2)',
     },
   },
 }

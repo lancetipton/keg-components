@@ -9,10 +9,12 @@ import { Animated } from 'react-native'
 const storyStyles = { textAlign: 'center' }
 const buttonStyle = { width: 125, marginRight: 10 }
 const modalOverrideStyle = {
-  main: {
+  content: {
     backgroundColor: 'yellow',
     width: '400px',
     borderRadius: 40,
+    height: 200,
+    justifyContent: 'center',
   },
   backdrop: { backgroundColor: 'rgba(1,1,1,0.5)' },
 }
@@ -87,6 +89,24 @@ storiesOf('Display | Modal', module)
         <P>
           Body of the default Modal. This is just some demo text as an example.
         </P>
+        <Button
+          themePath='button.contained.primary'
+          styles={{ main: buttonStyle }}
+          onClick={action('Button Clicked!')}
+          content={'Primary'}
+        />
+        <Button
+          themePath='button.contained.primary'
+          styles={{ main: buttonStyle }}
+          onClick={action('Button Clicked!')}
+          content={'Primary'}
+        />
+        <Button
+          themePath='button.contained.primary'
+          styles={{ main: buttonStyle }}
+          onClick={action('Button Clicked!')}
+          content={'Primary'}
+        />
         <Button
           themePath='button.contained.primary'
           styles={{ main: buttonStyle }}

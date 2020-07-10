@@ -6,7 +6,7 @@ import { Dimensions } from 'react-native'
 const windowHeight = Dimensions.get('window').height
 const heightStyles = { height: windowHeight }
 const buildHeightStyles = (height, key) => {
-  heightStyles.height = height
+  heightStyles.maxHeight = height
   return key ? { [key]: heightStyles } : heightStyles
 }
 const buildHeightWithTheme = (stylesWithHeight, themeStyles) => {
