@@ -1,9 +1,64 @@
-import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { TouchableOpacity, Animated } from 'react-native'
 import PropTypes from 'prop-types'
 import { useThemeWithHeight } from 'KegHooks'
 import { View } from 'KegView'
 import { noOp } from 'KegUtils'
+import { Dimensions } from 'react-native'
+import { useTheme } from '@simpleviewinc/re-theme'
+import { get } from 'jsutils'
+import { isValidComponent } from 'KegUtils'
+
+/**
+ * Modal wrapper to allow caller to pass in custom animation and styles
+ * @param {object} params
+ * @param {Component} params.ModalContainer custom component with its own animation and styles
+ * @param {Object} params.modalStyles
+ * @param {Component} params.children children components
+ * @param {object} params.props
+ */
+const DefaultAnimationView = ({
+  ModalContainer,
+  modalStyles,
+  children,
+  ...props
+}) => {
+  if (isValidComponent(ModalContainer)) {
+    return <ModalContainer>{ children }</ModalContainer>
+  }
+
+  // use the state to keep track of whether the modal has animated yet
+  const [ animated, setAnimated ] = useState(false)
+  let slideVal = new Animated.Value(0)
+
+  // Set default duration; second argument is empty array so animation function
+  // only runs on initial render; when finished with animation, call setAnimated to set flag to true
+  useEffect(() => {
+    Animated.timing(slideVal, {
+      toValue: 1,
+      duration: 1000,
+    }).start(() => setAnimated(true))
+  }, [])
+
+  // get modal style default height to set initial animation offset
+  const theme = useTheme()
+  const animationOffset = get(theme, 'modal.default.main.maxHeight', 600) / 2
+  const slideUp = slideVal.interpolate({
+    inputRange: [ 0, 1 ],
+    outputRange: [ Dimensions.get('window').height + animationOffset, 0 ],
+  })
+
+  return (
+    <Animated.View
+      style={{
+        ...modalStyles.main,
+        transform: animated ? null : [{ translateY: slideUp }],
+      }}
+    >
+      { children }
+    </Animated.View>
+  )
+}
 
 /**
  * Simple popup modal using fixed positioning.
@@ -17,6 +72,7 @@ import { noOp } from 'KegUtils'
  *  - backdrop: styles for the background behind the modal
  * @param {String} type - type of modal (points to styles in theme file with that type); default is 'default'
  * @param {Number} activeOpacity - changes opacity of background when touched/clicked; default is 1
+ * @param {Component} params.ModalContainer - pass a custom component to completely override the modal content
  */
 export const Modal = props => {
   if (!props.visible) return null
@@ -24,7 +80,6 @@ export const Modal = props => {
   const {
     styles,
     onBackdropTouch = noOp,
-    children,
     themePath,
     type = 'default',
     activeOpacity = 1,
@@ -37,14 +92,16 @@ export const Modal = props => {
   )
 
   return (
-    <View>
+    <View style={modalStyles.wrapper}>
       <TouchableOpacity
+        style={modalStyles.backdrop}
         onPressOut={onBackdropTouch}
         activeOpacity={activeOpacity}
-      >
-        <View style={modalStyles.backdrop} />
-      </TouchableOpacity>
-      <View style={modalStyles.main}>{ children }</View>
+      />
+      <DefaultAnimationView
+        modalStyles={modalStyles}
+        {...props}
+      />
     </View>
   )
 }
@@ -53,4 +110,5 @@ Modal.propTypes = {
   visible: PropTypes.bool,
   styles: PropTypes.object,
   onBackdropTouch: PropTypes.func,
+  ModalContainer: PropTypes.Component,
 }

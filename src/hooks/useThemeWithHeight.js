@@ -1,7 +1,17 @@
-import { useDimensions, useTheme } from '@simpleviewinc/re-theme'
+import { useDimensions } from '@simpleviewinc/re-theme'
+import { useLayoutEffect, useState } from 'react'
 import { useThemePath } from './useThemePath'
-import { get } from 'jsutils'
-
+import { deepMerge } from 'jsutils'
+import { Dimensions } from 'react-native'
+const windowHeight = Dimensions.get('window').height
+const heightStyles = { height: windowHeight }
+const buildHeightStyles = (height, key) => {
+  heightStyles.height = height
+  return key ? { [key]: heightStyles } : heightStyles
+}
+const buildHeightWithTheme = (stylesWithHeight, themeStyles) => {
+  return deepMerge(themeStyles, stylesWithHeight)
+}
 /**
  * Adds height property to specified styles object with a value equal to the window/screen height
  * @param {string} themePath - Path to the styles on the theme
@@ -11,26 +21,18 @@ import { get } from 'jsutils'
  * @returns {array} - styles object with height equal to window/screen height
  */
 export const useThemeWithHeight = (themePath, styles, key) => {
-  const dimensions = useDimensions()
-  const theme = useTheme()
-
-  let stylesWithHeight
-  if (styles) {
-    stylesWithHeight = theme.join(
-      { height: dimensions.height },
-      get(styles, [key])
+  const [themeStyles] = useThemePath(themePath, styles)
+  const { height } = useDimensions()
+  const [ curHeight, setCurHeight ] = useState(height)
+  const [ stylesWithHeight, setStylesWithHeight ] = useState(
+    buildHeightWithTheme(buildHeightStyles(height, key), themeStyles)
+  )
+  useLayoutEffect(() => {
+    if (height === curHeight) return
+    setCurHeight(height)
+    setStylesWithHeight(
+      buildHeightWithTheme(buildHeightStyles(height, key), themeStyles)
     )
-    const allStyles = theme.join({ [key]: stylesWithHeight }, styles)
-
-    return useThemePath(themePath, {
-      ...allStyles,
-    })
-  }
-  else {
-    stylesWithHeight = { height: dimensions.height }
-
-    return useThemePath(themePath, {
-      [key]: stylesWithHeight,
-    })
-  }
+  }, [ curHeight, height, key, themeStyles ])
+  return [ stylesWithHeight, setStylesWithHeight ]
 }
